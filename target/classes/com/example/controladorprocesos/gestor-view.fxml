@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<TabPane fx:id="tabPane" prefHeight="439.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controladorprocesos.controllers.GestorController">
+    <tabs>
+        <Tab text="UiLogin">
+            <content>
+                <AnchorPane prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Label layoutX="181.0" layoutY="78.0" prefHeight="17.0" prefWidth="61.0" text="Usuario:" />
+                        <TextField fx:id="txtFieldLoginUsuario" layoutX="181.0" layoutY="95.0" prefHeight="25.0" prefWidth="223.0" promptText="Ingrese el nombre de usuario" />
+                        <Label layoutX="183.0" layoutY="137.0" prefHeight="17.0" prefWidth="65.0" text="Contraseña:" />
+                        <PasswordField fx:id="txtFieldLoginContrasenia" layoutX="183.0" layoutY="154.0" prefHeight="25.0" prefWidth="220.0" promptText="Ingrese su contraseña" />
+                        <Button layoutX="246.0" layoutY="184.0" mnemonicParsing="false" onAction="#loginIniciarSesion" text="Iniciar Sesion" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="tabUIUsuario" text="UiUser">
+            <content>
+                <ScrollPane fitToHeight="true" fitToWidth="true">
+                    <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <TableView fx:id="tableViewUsuarioProcesos" layoutY="174.0" prefHeight="192.0" prefWidth="600.0">
+                                    <columns>
+                                        <TableColumn fx:id="colUsuarioIdProceso" prefWidth="257.0" text="Id" />
+                                        <TableColumn fx:id="colUsuarioNombreProceso" prefWidth="342.0" text="Nombre" />
+                                    </columns>
+                                </TableView>
+                                <Label layoutY="225.0" prefHeight="26.0" prefWidth="97.0" />
+                                <ButtonBar layoutY="298.0" prefHeight="40.0" prefWidth="200.0" />
+                                  <Button layoutX="352.0" layoutY="142.0" mnemonicParsing="false" onAction="#usuarioBuscarProcesoNombre" prefHeight="25.0" prefWidth="124.0" text="Buscar por Nombre" />
+                                  <TextField fx:id="txtFieldUsuarioNombreProceso" editable="false" layoutX="66.0" layoutY="111.0" prefHeight="25.0" prefWidth="167.0" />
+                                  <Label layoutX="14.0" layoutY="115.0" prefHeight="17.0" prefWidth="52.0" text="nombre:" />
+                                  <TextField fx:id="txtFieldUsuarioIdProceso" editable="false" layoutX="66.0" layoutY="82.0" prefHeight="25.0" prefWidth="167.0" />
+                                  <Button layoutX="257.0" layoutY="142.0" mnemonicParsing="false" onAction="#usuarioBuscarProcesoId" prefHeight="25.0" text="Buscar por Id" />
+                                  <Label layoutX="14.0" layoutY="86.0" prefHeight="17.0" prefWidth="17.0" text="id:" />
+                        <Button layoutX="484.0" layoutY="142.0" mnemonicParsing="false" onAction="#usuarioActualizarTablaProcesos" text="Actualizar tabla" />
+                        <Text layoutX="11.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Procesos" />
+                        <Label layoutX="257.0" layoutY="86.0" prefHeight="17.0" prefWidth="53.0" text="duracion:" />
+                        <TextField fx:id="txtFieldUsuarioDuracionProceso" editable="false" layoutX="337.0" layoutY="82.0" prefHeight="25.0" prefWidth="167.0" />
+                        <Label layoutX="257.0" layoutY="115.0" prefHeight="17.0" prefWidth="69.0" text="actividades:" />
+                        <TextField fx:id="txtFieldUsuarioActividadesProceso" editable="false" layoutX="337.0" layoutY="111.0" prefHeight="25.0" prefWidth="167.0" />
+                        <Text layoutX="11.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acividades" />
+                        <TableView fx:id="tableViewUsuarioActividades" layoutY="530.0" prefHeight="192.0" prefWidth="600.0">
+                           <columns>
+                              <TableColumn fx:id="colUsuarioObligatorioActividad" prefWidth="247.0" text="Obligatoria" />
+                              <TableColumn fx:id="colUsuarioNombreActividad" prefWidth="351.0" text="Nombre" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="9.0" layoutY="425.0" text="nombre:" />
+                        <Label layoutX="8.0" layoutY="458.0" text="obligatoria:" />
+                        <Label layoutX="286.0" layoutY="425.0" text="descripcion:" />
+                        <TextField fx:id="txtFieldUsuarioNombreActividad" editable="false" layoutX="75.0" layoutY="421.0" />
+                        <TextArea fx:id="txtAreaUsuarioDescripcionActividad" editable="false" layoutX="359.0" layoutY="418.0" prefHeight="59.0" prefWidth="217.0" />
+                        <Button layoutX="341.0" layoutY="497.0" mnemonicParsing="false" onAction="#usuarioBuscarActividadNombre" text="Buscar por Nombre" />
+                        <Button layoutX="476.0" layoutY="497.0" mnemonicParsing="false" onAction="#usuarioActualizarTablaActividades" text="Actualizar tabla" />
+                        <Text layoutX="11.0" layoutY="754.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tareas" />
+                        <Label layoutX="12.0" layoutY="767.0" text="nombre:" />
+                        <ComboBox fx:id="comboBoxUsuarioObligatorioActividad" layoutX="75.0" layoutY="454.0" prefWidth="150.0" />
+                        <Label layoutX="15.0" layoutY="803.0" text="obligatoria:" />
+                        <TextField fx:id="txtFieldUsuarioNombreTarea" editable="false" layoutX="90.0" layoutY="763.0" />
+                        <ComboBox fx:id="comboBoxUsuarioObligatorioTarea" layoutX="90.0" layoutY="799.0" prefWidth="150.0" />
+                        <Label layoutX="286.0" layoutY="767.0" text="descripcion:" />
+                        <TextArea fx:id="txtAreaUsuarioDescripcionTarea" editable="false" layoutX="359.0" layoutY="759.0" prefHeight="59.0" prefWidth="217.0" />
+                        <TableView fx:id="tableViewUsuarioTareas" layoutY="870.0" prefHeight="192.0" prefWidth="600.0">
+                           <columns>
+                              <TableColumn fx:id="colUsuarioObligatorioTarea" prefWidth="253.0" text="Obligatoria" />
+                              <TableColumn fx:id="colUsuarioNombreTarea" prefWidth="345.0" text="Nombre" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="341.0" layoutY="837.0" mnemonicParsing="false" onAction="#usuarioBuscarTareaNombre" text="Buscar por Nombre" />
+                        <Button layoutX="476.0" layoutY="837.0" mnemonicParsing="false" onAction="#usuarioActualizarTablaTareas" text="Actualizar tabla" />
+                        <SplitMenuButton fx:id="splitMenuButtonUsuarioNotificaciones" layoutX="446.0" layoutY="10.0" mnemonicParsing="false" text="Notificaciones">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Action 1" />
+                            <MenuItem mnemonicParsing="false" text="Action 2" />
+                          </items>
+                        </SplitMenuButton>
+                        <Text layoutX="11.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notificaciones" />
+                        <ChoiceBox fx:id="choiceBoxUsuarioNotificaciones" layoutX="251.0" layoutY="10.0" prefWidth="150.0" />
+                        <Text layoutX="11.0" layoutY="1097.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exportacion" />
+                        <Button layoutX="217.0" layoutY="1117.0" mnemonicParsing="false" onAction="#usuarioExportarDatosExcel" text="Exportar Procesos a Excel" />
+                        <Label layoutX="15.0" layoutY="841.0" text="tiempo:" />
+                        <TextField fx:id="txtFieldUsuarioTiempoTarea" editable="false" layoutX="90.0" layoutY="837.0" />
+                        <Label layoutX="8.0" layoutY="497.0" text="tareas:" />
+                        <TextField fx:id="txtFieldUsuarioTareasActividad" editable="false" layoutX="75.0" layoutY="493.0" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </ScrollPane>
+            </content>
+        </Tab>
+
+        <!-- UiAdmin Tab -->
+        <Tab fx:id="tabUIAdministrador" text="UiAdmin">
+            <content>
+                <ScrollPane fitToHeight="true" fitToWidth="true">
+                    <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="100.0">
+    <children>
+        <TableView fx:id="tableViewAdministradorProcesos" layoutX="-3.0" layoutY="185.0" prefHeight="192.0" prefWidth="607.0">
+            <columns>
+                <TableColumn fx:id="colAdministradorIdProceso" prefWidth="249.0" text="Id" />
+                <TableColumn fx:id="colAdministradorNombreProceso" prefWidth="353.0" text="Nombre" />
+            </columns>
+        </TableView>
+        <Button layoutX="352.0" layoutY="153.0" mnemonicParsing="false" onAction="#adminBuscarProcesoNombre" prefHeight="25.0" prefWidth="124.0" text="Buscar por Nombre" />
+        <TextField fx:id="txtFieldAdminNombreProceso" layoutX="66.0" layoutY="74.0" prefHeight="25.0" prefWidth="167.0" />
+        <Label layoutX="14.0" layoutY="78.0" prefHeight="17.0" prefWidth="52.0" text="nombre:" />
+        <TextField fx:id="txtFieldAdminIdProceso" layoutX="66.0" layoutY="45.0" prefHeight="25.0" prefWidth="167.0" />
+        <Button layoutX="262.0" layoutY="153.0" mnemonicParsing="false" onAction="#adminBuscarProcesoId" prefHeight="25.0" text="Buscar por Id" />
+        <Label layoutX="14.0" layoutY="49.0" prefHeight="17.0" prefWidth="17.0" text="id:" />
+        <Button layoutX="479.0" layoutY="153.0" mnemonicParsing="false" onAction="#adminActualizarTablaProcesos" text="Actualizar tabla" />
+        <Text layoutX="11.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Procesos" />
+        <Label layoutX="257.0" layoutY="49.0" prefHeight="17.0" prefWidth="53.0" text="duracion:" />
+        <TextField fx:id="txtFieldAdminDuracionProceso" layoutX="337.0" layoutY="45.0" prefHeight="25.0" prefWidth="167.0" />
+        <Label layoutX="257.0" layoutY="78.0" prefHeight="17.0" prefWidth="69.0" text="actividades:" />
+        <TextField fx:id="txtFieldAdminActividadesProceso" layoutX="337.0" layoutY="74.0" prefHeight="25.0" prefWidth="167.0" />
+        <Text layoutX="11.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actividades" />
+        <TableView fx:id="tableViewAdministradorActividades" layoutY="611.0" prefHeight="192.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="colAdministradorObligatorioActividad" prefWidth="250.0" text="Obligatoria" />
+                <TableColumn fx:id="colAdministradorNombreActividad" prefWidth="339.0" text="Nombre" />
+            </columns>
+        </TableView>
+        <Label layoutX="9.0" layoutY="452.0" text="nombre:" />
+        <Label layoutX="8.0" layoutY="485.0" text="obligatoria:" />
+        <Label layoutX="286.0" layoutY="452.0" text="descripcion:" />
+        <TextField fx:id="txtFieldAdministradorNombreActividad" layoutX="75.0" layoutY="448.0" />
+        <TextArea fx:id="txtAreaAdminDescripcionActividad" layoutX="359.0" layoutY="445.0" prefHeight="114.0" prefWidth="217.0" />
+        <Button layoutX="235.0" layoutY="578.0" mnemonicParsing="false" onAction="#adminBuscarActividadNombre" prefHeight="25.0" prefWidth="123.0" text="Buscar por Nombre" />
+        <Button layoutX="362.0" layoutY="578.0" mnemonicParsing="false" onAction="#adminActualizarTablaActividades" text="Actualizar tabla" />
+        <Text layoutX="11.0" layoutY="836.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tareas" />
+        <Label layoutX="12.0" layoutY="859.0" text="nombre:" />
+        <ComboBox fx:id="comboBoxAdminObligatorioActividad" layoutX="75.0" layoutY="481.0" prefWidth="150.0" />
+        <Label layoutX="13.0" layoutY="902.0" text="obligatoria:" />
+        <TextField fx:id="txtFieldAdminitradorNombreTarea" layoutX="87.0" layoutY="855.0" />
+        <ComboBox fx:id="comboBoxAdminObligatorioTarea" layoutX="90.0" layoutY="898.0" prefWidth="150.0" />
+        <Label layoutX="279.0" layoutY="894.0" text="descripcion:" />
+        <TextArea fx:id="txtAreaAdminDescripcionTarea" layoutX="352.0" layoutY="881.0" prefHeight="83.0" prefWidth="217.0" />
+        <TableView fx:id="tableViewAdministradorTareas" layoutY="1018.0" prefHeight="192.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="colAdminTareaObligatoria" prefWidth="233.0" text="Obligatoria" />
+                <TableColumn fx:id="colAdminNombreTarea" prefWidth="366.0" text="Nombre" />
+            </columns>
+        </TableView>
+        <Button layoutX="244.0" layoutY="982.0" mnemonicParsing="false" onAction="#adminBuscarTareaNombre" text="Buscar por Nombre" />
+        <Button layoutX="372.0" layoutY="982.0" mnemonicParsing="false" onAction="#adminActualizarTablaTareas" text="Actualizar tabla" />
+        <Text layoutX="19.0" layoutY="1547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exportacion" />
+        <Button layoutX="124.0" layoutY="1567.0" mnemonicParsing="false" onAction="#adminExportarProcesosExcel" text="Exportar Procesos a Excel" />
+                        <Button layoutX="357.0" layoutY="1567.0" mnemonicParsing="false" onAction="#adminImportarProcesosCSV" text="Importar Procesos" />
+                        <Button layoutX="144.0" layoutY="153.0" mnemonicParsing="false" onAction="#adminActualizarProceso" text="Actualizar proceso" />
+                        <Button layoutX="468.0" layoutY="578.0" mnemonicParsing="false" onAction="#adminActualizarActividad" text="Actualizar actividad" />
+                        <Button layoutX="478.0" layoutY="982.0" mnemonicParsing="false" onAction="#adminActualizarTarea" text="Actualizar tarea" />
+                        <Text layoutX="8.0" layoutY="1235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
+                        <Label layoutX="9.0" layoutY="1248.0" text="usuario:" />
+                        <Label layoutX="12.0" layoutY="1284.0" text="contraseña:" />
+                        <TextField fx:id="txtFieldAdminitradorNombreUsuario"  layoutX="87.0" layoutY="1244.0" />
+                        <TableView fx:id="tableViewAdministradorUsuarios" layoutX="-3.0" layoutY="1322.0" prefHeight="192.0" prefWidth="600.0">
+                           <columns>
+                              <TableColumn fx:id="colAdminUsuario" prefWidth="278.0" text="Usuario" />
+                              <TableColumn fx:id="colAdminContrasenia" prefWidth="319.0" text="Contraseña" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="434.0" layoutY="1244.0" mnemonicParsing="false" onAction="#adminBuscarUsuario" text="Buscar Usuario" />
+                        <Button layoutX="434.0" layoutY="1280.0" mnemonicParsing="false" onAction="#adminActualizarUsuario" text="Actualizar usuario" />
+                        <TextField fx:id="txtFieldAdminitradorContrasenia"  layoutX="87.0" layoutY="1280.0" />
+                        <Button layoutX="284.0" layoutY="1279.0" mnemonicParsing="false" onAction="#adminEliminarUsuario" prefHeight="19.0" prefWidth="101.0" text="Eliminar usuario" />
+                        <Button layoutX="284.0" layoutY="1244.0" mnemonicParsing="false" onAction="#adminAgregarUsuario" prefHeight="22.0" prefWidth="101.0" text="Agregar usuario" />
+                        <Button layoutX="124.0" layoutY="1605.0" mnemonicParsing="false" onAction="#adminExportarUsuariosExcel" text="Exportar Usuarios a Excel" />
+                        <Button layoutX="357.0" layoutY="1605.0" mnemonicParsing="false" onAction="#adminImportarUsuariosCSV" text="Importar Usuarios" />
+                        <Button layoutX="137.0" layoutY="982.0" mnemonicParsing="false" onAction="#adminEliminarTarea" prefHeight="19.0" prefWidth="101.0" text="Eliminar tarea" />
+                        <Button layoutX="116.0" layoutY="578.0" mnemonicParsing="false" onAction="#adminEliminarActividad" prefHeight="25.0" prefWidth="118.0" text="Eliminar actividad" />
+                        <Button layoutX="37.0" layoutY="153.0" mnemonicParsing="false" onAction="#adminEliminarProceso" prefHeight="19.0" prefWidth="101.0" text="Eliminar proceso" />
+                        <Button layoutX="462.0" layoutY="119.0" mnemonicParsing="false" onAction="#adminAgregarProceso" text="Agregar proceso" />
+                        <Button layoutX="5.0" layoutY="578.0" mnemonicParsing="false" onAction="#adminAgregarActividad" text="Agregar actividad" />
+                        <Button layoutX="40.0" layoutY="982.0" mnemonicParsing="false" onAction="#adminAgregarTarea" text="Agregar tarea" />
+                        <Label layoutX="18.0" layoutY="948.0" text="tiempo:" />
+                        <TextField fx:id="txtFieldAdminitradorTiempoTarea" layoutX="87.0" layoutY="944.0" />
+                        <Label layoutX="10.0" layoutY="529.0" text="tareas" />
+                        <TextField fx:id="txtFieldAdminitradorTareasActividad" layoutX="75.0" layoutY="525.0" />
+    </children>
+</AnchorPane>
+                    </content>
+                </ScrollPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
